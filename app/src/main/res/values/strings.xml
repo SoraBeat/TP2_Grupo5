@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">TP2_Grupo5</string>
     <string name="EjercicioControles">EjercicioControles - Grupo 5</string>
+    <string name="tituloFormulario">FORMULARIO DE CONTACTO</string>
+    <string name="descripcionFormulario">Este es un formulario destinado al registro de personas, sus datos personales e intereses.</string>
+    <string name="nombreMayus">NOMBRE</string>
+    <string name="nombreMinus">Nombre</string>
+    <string name="apellidoMayus">APELLIDO</string>
+    <string name="apellidoMinus">Apellido</string>
+    <string name="telefonoMayus">TELÉFONO</string>
+    <string name="telefonoMinus">Teléfono</string>
+    <string name="emailMayus">EMAIL</string>
+    <string name="emailMinus">Email</string>
+    <string name="direccionMayus">DIRECCION</string>
+    <string name="direccionMinus">Direccion</string>
+    <string name="fechaNacMayus">FECHA DE NACIMIENTO</string>
+    <string name="fechaNacMinus">Fecha de nacimiento</string>
+    <string name="continuar">CONTINUAR</string>
 </resources>
