@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class AgregarContactos2 extends AppCompatActivity {
 
@@ -32,5 +34,18 @@ public class AgregarContactos2 extends AppCompatActivity {
             startActivity(i);
         }
         return true;
+    }
+
+    public void btnGuardar_Click(View view)
+    {
+        //Datos del 1er formulario
+        String nombre = getIntent().getStringExtra("nombre");
+        String apellido = getIntent().getStringExtra("apellido");
+        String tel = getIntent().getStringExtra("tel");
+        String email = getIntent().getStringExtra("email");
+        String direccion = getIntent().getStringExtra("direccion");
+        String fecha = getIntent().getStringExtra("fechaNac");
+        String spinnerTel = getIntent().getStringExtra("spinnerTel");
+        String spinnerEmail = getIntent().getStringExtra("spinnerEmail");
     }
 }

@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".AgregarContactos2">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="@string/tituloFormulario"
         android:textSize="20sp"
@@ -19,24 +20,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        tools:ignore="TextSizeCheck"
         android:id="@+id/textView2"
         android:layout_width="361dp"
         android:layout_height="37dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:text="@string/descripcionFormulario2"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TextSizeCheck" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="352dp"
         android:layout_height="262dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/bg_radio_group_border"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -84,9 +84,9 @@
 
     <View
         android:id="@+id/view2"
-        android:layout_width="345dp"
-        android:layout_height="119dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="356dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/bg_radio_group_border"
         app:layout_constraintEnd_toEndOf="@+id/radioGroup"
         app:layout_constraintHorizontal_bias="0.0"
@@ -96,7 +96,7 @@
     <CheckBox
         android:id="@+id/chkDeporte"
         android:layout_width="150dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="Deporte"
@@ -105,8 +105,8 @@
 
     <CheckBox
         android:id="@+id/chkMusica"
-        android:layout_width="150dp"
-        android:layout_height="46dp"
+        android:layout_width="161dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="28dp"
         android:text="Musica"
         app:layout_constraintEnd_toEndOf="@+id/view2"
@@ -115,15 +115,16 @@
     <CheckBox
         android:id="@+id/chkArte"
         android:layout_width="150dp"
-        android:layout_height="46dp"
+        android:layout_height="50dp"
         android:text="Arte"
         app:layout_constraintStart_toStartOf="@+id/chkDeporte"
         app:layout_constraintTop_toBottomOf="@+id/chkDeporte" />
 
     <CheckBox
         android:id="@+id/chkTecnologia"
-        android:layout_width="150dp"
-        android:layout_height="46dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
         android:text="Tecnologia"
         app:layout_constraintEnd_toEndOf="@+id/chkMusica"
         app:layout_constraintTop_toBottomOf="@+id/chkMusica" />
@@ -133,25 +134,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="INTERESES"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/radioGroup"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        android:textStyle="bold" />
+        app:layout_constraintVertical_bias="0.707" />
 
     <TextView
         android:id="@+id/txtViewConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="DESEA RECIBIR INFORMACION?"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        android:textStyle="bold"/>
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <Switch
         android:id="@+id/swtConfirmInfo"
-        android:layout_width="64dp"
-        android:layout_height="26dp"
+        android:layout_width="92dp"
+        android:layout_height="51dp"
         android:layout_marginStart="20dp"
         android:showText="false"
         android:text="SI"
@@ -164,8 +166,11 @@
         android:id="@+id/btnGuardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="btnGuardar_Click"
         android:text="GUARDAR"
         app:layout_constraintEnd_toEndOf="@+id/swtConfirmInfo"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/swtConfirmInfo"
         app:layout_constraintTop_toBottomOf="@+id/swtConfirmInfo" />
 

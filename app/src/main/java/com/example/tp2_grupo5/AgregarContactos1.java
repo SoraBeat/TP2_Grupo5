@@ -27,6 +27,10 @@ public class AgregarContactos1 extends AppCompatActivity {
     private EditText editTxtDate;
     private EditText editTxtApellido;
     private EditText editTxtNombre;
+    private EditText editTextTel;
+    private EditText editTextDireccion;
+    Pattern formatoSoloLetras = Pattern.compile("[^0-9]*");
+    Pattern fechaNacFormato = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +41,8 @@ public class AgregarContactos1 extends AppCompatActivity {
         editTxtNombre = (EditText)findViewById(R.id.etNombre);
         editTxtEmail = (EditText)findViewById(R.id.etEmail);
         editTxtDate = (EditText)findViewById(R.id.etFechaNac);
-
+        editTextTel = (EditText)findViewById(R.id.etTelefono);
+        editTextDireccion = (EditText)findViewById(R.id.etDireccion);
         spinnerTel = (Spinner)findViewById(R.id.spinnerTelefono);
         spinnerEmail = (Spinner)findViewById(R.id.spinnerEmail);
 
@@ -76,13 +81,14 @@ public class AgregarContactos1 extends AppCompatActivity {
         String nombre = editTxtNombre.getText().toString().trim();
         String email = editTxtEmail.getText().toString().trim();
         String fechaNac = editTxtDate.getText().toString().trim();
+        String tel = editTextTel.getText().toString().trim();
+        String direccion  = editTextDireccion.getText().toString().trim();
+        String sppinerTel = spinnerTel.getSelectedItem().toString();
+        String sppinerEmail = spinnerEmail.getSelectedItem().toString();
 
-
-        Pattern formatoSoloLetras = Pattern.compile("[^0-9]*");
         Matcher matcherApellido = formatoSoloLetras.matcher(apellido);
         Matcher matcherNombre = formatoSoloLetras.matcher(nombre);
 
-        Pattern fechaNacFormato = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
         Matcher matcherFechaNac = fechaNacFormato.matcher(fechaNac);
 
         //Verifico que el apellido no contenga numeros
@@ -96,6 +102,16 @@ public class AgregarContactos1 extends AppCompatActivity {
                     if (!fechaNac.isEmpty() && matcherFechaNac.matches()) //Si la fecha no esta vacia y el formato es valido dd/MM/yyyy
                     {
                         Intent viewAgregarContactos2 = new Intent(this, AgregarContactos2.class);
+                        //Paso la información al 2do formulario
+                        viewAgregarContactos2.putExtra("nombre", nombre);
+                        viewAgregarContactos2.putExtra("apellido", apellido);
+                        viewAgregarContactos2.putExtra("tel", tel);
+                        viewAgregarContactos2.putExtra("email", email);
+                        viewAgregarContactos2.putExtra("direccion", direccion);
+                        viewAgregarContactos2.putExtra("fechaNac", fechaNac);
+                        viewAgregarContactos2.putExtra("spinnerTel", sppinerTel);
+                        viewAgregarContactos2.putExtra("spinnerEmail", sppinerEmail);
+
                         startActivity(viewAgregarContactos2);
                     } else {
                         Toast.makeText(this, "La fecha de nacimiento no es valida", Toast.LENGTH_SHORT).show();
