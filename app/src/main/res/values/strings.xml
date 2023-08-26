@@ -16,4 +16,6 @@
     <string name="fechaNacMayus">FECHA DE NACIMIENTO</string>
     <string name="fechaNacMinus">Fecha de nacimiento</string>
     <string name="continuar">CONTINUAR</string>
+
+    <string name="descripcionFormulario2">A continuación, por favor se pide completar más datos personales..</string>
 </resources>
