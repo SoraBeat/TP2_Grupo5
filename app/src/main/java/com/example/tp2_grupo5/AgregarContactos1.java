@@ -29,7 +29,7 @@ public class AgregarContactos1 extends AppCompatActivity {
     private EditText editTxtNombre;
     private EditText editTextTel;
     private EditText editTextDireccion;
-    Pattern formatoSoloLetras = Pattern.compile("[^0-9]*");
+    Pattern formatoSoloLetras = Pattern.compile("^[a-zA-Z]*$");
     Pattern fechaNacFormato = Pattern.compile("\\d{2}/\\d{2}/\\d{4}");
 
     @Override
@@ -81,10 +81,6 @@ public class AgregarContactos1 extends AppCompatActivity {
         String nombre = editTxtNombre.getText().toString().trim();
         String email = editTxtEmail.getText().toString().trim();
         String fechaNac = editTxtDate.getText().toString().trim();
-        String tel = editTextTel.getText().toString().trim();
-        String direccion  = editTextDireccion.getText().toString().trim();
-        String sppinerTel = spinnerTel.getSelectedItem().toString();
-        String sppinerEmail = spinnerEmail.getSelectedItem().toString();
 
         Matcher matcherApellido = formatoSoloLetras.matcher(apellido);
         Matcher matcherNombre = formatoSoloLetras.matcher(nombre);
@@ -103,14 +99,14 @@ public class AgregarContactos1 extends AppCompatActivity {
                     {
                         Intent viewAgregarContactos2 = new Intent(this, AgregarContactos2.class);
                         //Paso la información al 2do formulario
-                        viewAgregarContactos2.putExtra("nombre", nombre);
-                        viewAgregarContactos2.putExtra("apellido", apellido);
-                        viewAgregarContactos2.putExtra("tel", tel);
-                        viewAgregarContactos2.putExtra("email", email);
-                        viewAgregarContactos2.putExtra("direccion", direccion);
-                        viewAgregarContactos2.putExtra("fechaNac", fechaNac);
-                        viewAgregarContactos2.putExtra("spinnerTel", sppinerTel);
-                        viewAgregarContactos2.putExtra("spinnerEmail", sppinerEmail);
+                        viewAgregarContactos2.putExtra("nombre", editTxtNombre.getText().toString().trim());
+                        viewAgregarContactos2.putExtra("apellido", editTxtApellido.getText().toString().trim());
+                        viewAgregarContactos2.putExtra("tel", editTextTel.getText().toString().trim());
+                        viewAgregarContactos2.putExtra("email", editTxtEmail.getText().toString().trim());
+                        viewAgregarContactos2.putExtra("direccion", editTextDireccion.getText().toString().trim());
+                        viewAgregarContactos2.putExtra("fechaNac", editTxtDate.getText().toString().trim());
+                        viewAgregarContactos2.putExtra("spinnerTel", spinnerTel.getSelectedItem().toString());
+                        viewAgregarContactos2.putExtra("spinnerEmail", spinnerEmail.getSelectedItem().toString());
 
                         startActivity(viewAgregarContactos2);
                     } else {
