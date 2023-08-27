@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ListarContactos">
 
+    <TextView
+        android:id="@+id/txtPrueba"
+        android:layout_width="323dp"
+        android:layout_height="170dp"
+        android:text="TextView"
+        android:textSize="34sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

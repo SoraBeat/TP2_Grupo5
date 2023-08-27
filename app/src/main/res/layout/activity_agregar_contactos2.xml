@@ -33,7 +33,7 @@
         tools:ignore="TextSizeCheck" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/rgEstudios"
         android:layout_width="352dp"
         android:layout_height="262dp"
         android:layout_marginTop="32dp"
@@ -86,48 +86,48 @@
         android:id="@+id/view2"
         android:layout_width="356dp"
         android:layout_height="120dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/bg_radio_group_border"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/rgEstudios"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/txtViewIntereses"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <CheckBox
-        android:id="@+id/chkDeporte"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Deporte"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
-
-    <CheckBox
-        android:id="@+id/chkMusica"
-        android:layout_width="161dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="28dp"
-        android:text="Musica"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/chkDeporte" />
-
-    <CheckBox
-        android:id="@+id/chkArte"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Arte"
-        app:layout_constraintStart_toStartOf="@+id/chkDeporte"
-        app:layout_constraintTop_toBottomOf="@+id/chkDeporte" />
+        app:layout_constraintTop_toBottomOf="@+id/rgEstudios" />
 
     <CheckBox
         android:id="@+id/chkTecnologia"
         android:layout_width="160dp"
         android:layout_height="50dp"
-        android:layout_marginTop="4dp"
         android:text="Tecnologia"
-        app:layout_constraintEnd_toEndOf="@+id/chkMusica"
+        app:layout_constraintStart_toEndOf="@+id/chkArte"
         app:layout_constraintTop_toBottomOf="@+id/chkMusica" />
+
+    <CheckBox
+        android:id="@+id/chkArte"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:text="Arte"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/chkDeporte" />
+
+    <CheckBox
+        android:id="@+id/chkMusica"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:text="Musica"
+        app:layout_constraintStart_toEndOf="@+id/chkDeporte"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+    <CheckBox
+        android:id="@+id/chkDeporte"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Deporte"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
 
     <TextView
         android:id="@+id/txtViewIntereses"
@@ -136,8 +136,8 @@
         android:text="INTERESES"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="@+id/rgEstudios"
+        app:layout_constraintTop_toBottomOf="@+id/rgEstudios"
         app:layout_constraintVertical_bias="0.707" />
 
     <TextView
