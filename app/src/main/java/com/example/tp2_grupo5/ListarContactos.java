@@ -34,13 +34,13 @@ import com.example.tp2_grupo5.MostrarDatos;
 import kotlin.jvm.internal.markers.KMutableMap;
 
 public class ListarContactos extends AppCompatActivity {
-    private ConstraintLayout listaPersonas;
+    private LinearLayout listaPersonas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_contactos);
 
-        listaPersonas = (ConstraintLayout) findViewById(R.id.listaPersonas);
+        listaPersonas = (LinearLayout) findViewById(R.id.listaPersonas);
 
         SharedPreferences preferences = getSharedPreferences("datos", Context.MODE_PRIVATE);
         String datos = preferences.getString("datosPersonas","");
