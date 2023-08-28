@@ -23,7 +23,7 @@ public class ListarContactos extends AppCompatActivity {
         txtPrueba = (TextView) findViewById(R.id.txtPrueba);
 
         SharedPreferences preferences = getSharedPreferences("datos", Context.MODE_PRIVATE);
-        String datos = preferences.getString("ll","");
+        String datos = preferences.getString("datosPersonas","");
 
         txtPrueba.setText(datos);
 

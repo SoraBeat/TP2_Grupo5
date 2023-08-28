@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/txtPrueba"
-        android:layout_width="323dp"
-        android:layout_height="170dp"
+        android:layout_width="380dp"
+        android:layout_height="560dp"
         android:text="TextView"
-        android:textSize="34sp"
+        android:textSize="14sp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

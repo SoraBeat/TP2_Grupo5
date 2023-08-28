@@ -19,6 +19,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.tp2_grupo5.Persona;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class AgregarContactos2 extends AppCompatActivity {
     private RadioGroup rgEstudio;
@@ -123,11 +126,25 @@ public class AgregarContactos2 extends AppCompatActivity {
 
             Persona Obj_Persona = new Persona(nombre,apellido,tel,spinnerTel,email,spinnerEmail,fecha,direccion,selectedText,intereses, String.valueOf(swtConfirmInfo.isChecked()));
 
-            Gson gson = new Gson();
-            String json = gson.toJson(Obj_Persona);
+            SharedPreferences prefGuardadas = getSharedPreferences("datos", Context.MODE_PRIVATE);
+            String datosGuardados = prefGuardadas.getString("datosPersonas","");
 
-            Obj_Editor.putString(nombre+apellido, json);
-            Obj_Editor.commit();
+            Gson gson = new Gson();
+            if(!datosGuardados.isEmpty()){
+                JsonObject jsonGuardado = new Gson().fromJson(datosGuardados,JsonObject.class); //Los datos que tengo guardado los transforma a JSONObject
+                JsonElement persona = new Gson().fromJson(gson.toJson(Obj_Persona),JsonElement.class); //Los datos que ingrese de la persona los transforma a JSONElement
+                jsonGuardado.add(String.valueOf(jsonGuardado.size()+1),persona); //Guardo la persona dentro del JSONGuardado
+
+                Obj_Editor.putString("datosPersonas", jsonGuardado.toString());
+                Obj_Editor.commit();
+            }else {
+                JsonObject jsonGuardado = new JsonObject(); //Los datos que tengo guardado los transforma a JSONObject
+                JsonElement persona = new Gson().fromJson(gson.toJson(Obj_Persona), JsonElement.class); //Los datos que ingrese de la persona los transforma a JSONElement
+                jsonGuardado.add(String.valueOf(jsonGuardado.size() + 1), persona); //Guardo la persona dentro del JSONGuardado
+
+                Obj_Editor.putString("datosPersonas", jsonGuardado.toString());
+                Obj_Editor.commit();
+            }
 
             //Volver al primer formulario
             Intent viewAgregarContactos1 = new Intent(this, AgregarContactos1.class);
