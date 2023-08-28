@@ -26,6 +26,9 @@ public class MostrarDatos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_datos);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Nombre = (TextView)findViewById(R.id.txtNombre);
         Nombre.setText("Nombre y Apellido: " + (getIntent().getStringExtra("nombre")+" "+getIntent().getStringExtra("apellido")).replaceAll("\"",""));
 
@@ -72,6 +75,10 @@ public class MostrarDatos extends AppCompatActivity {
             Intent i = new Intent(this,AgregarContactos1.class);
             startActivity(i);
         } else if(id==R.id.listarContactos){
+            Intent i = new Intent(this,ListarContactos.class);
+            startActivity(i);
+        }
+        else if (id==android.R.id.home) {
             Intent i = new Intent(this,ListarContactos.class);
             startActivity(i);
         }
