@@ -47,6 +47,9 @@ public class ListarContactos extends AppCompatActivity {
         Gson gson = new Gson();
         JsonObject jsonGuardado = new Gson().fromJson(datos,JsonObject.class);//Obtengo los datos y los convierto a Json
 
+        if (datos.isEmpty())
+            return;
+
         Map<String, Object> attributes = new HashMap<String, Object>();//Creo una lista por cada atributo del objeto
         Set<Map.Entry<String, JsonElement>> entrySet = jsonGuardado.entrySet();
         for(Map.Entry<String,JsonElement> entry : entrySet){

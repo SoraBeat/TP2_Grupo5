@@ -19,7 +19,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        tools:ignore="TextSizeCheck"
         android:id="@+id/textView2"
         android:layout_width="361dp"
         android:layout_height="37dp"
@@ -29,18 +28,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TextSizeCheck" />
 
     <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -53,16 +55,16 @@
                 android:textStyle="bold" />
 
             <EditText
-                tools:ignore="Autofill"
                 android:id="@+id/etNombre"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:hint="@string/nombreMinus"
                 android:inputType="text"
-                android:minHeight="48dp"/>
+                android:minHeight="48dp"
+                tools:ignore="Autofill" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -74,16 +76,16 @@
                 android:textStyle="bold" />
 
             <EditText
-                tools:ignore="Autofill"
                 android:id="@+id/etApellido"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:ems="10"
-                android:inputType="text"
                 android:hint="@string/apellidoMinus"
-                android:minHeight="48dp"/>
+                android:inputType="text"
+                android:minHeight="48dp"
+                tools:ignore="Autofill" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -100,25 +102,25 @@
                 android:orientation="horizontal">
 
 
-                    <EditText
-                        tools:ignore="Autofill"
-                        android:id="@+id/etTelefono"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="12dp"
-                        android:ems="10"
-                        android:hint="@string/telefonoMinus"
-                        android:inputType="phone"
-                        android:minHeight="48dp"/>
+                <EditText
+                    android:id="@+id/etTelefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:ems="10"
+                    android:hint="@string/telefonoMinus"
+                    android:inputType="phone"
+                    android:minHeight="48dp"
+                    tools:ignore="Autofill" />
 
-                    <Spinner
-                        android:id="@+id/spinnerTelefono"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:minHeight="48dp"/>
-                </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinnerTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:minHeight="48dp" />
+            </LinearLayout>
 
 
             <TextView
@@ -138,7 +140,6 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    tools:ignore="Autofill"
                     android:id="@+id/etEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -146,16 +147,17 @@
                     android:ems="10"
                     android:hint="@string/emailMinus"
                     android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    tools:ignore="Autofill"
                     tools:layout_editor_absoluteX="31dp"
-                    tools:layout_editor_absoluteY="481dp"
-                    android:minHeight="48dp"/>
+                    tools:layout_editor_absoluteY="481dp" />
 
                 <Spinner
                     android:id="@+id/SpinnerEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:minHeight="48dp"/>
+                    android:minHeight="48dp" />
             </LinearLayout>
 
             <TextView
@@ -168,17 +170,17 @@
                 android:textStyle="bold" />
 
             <EditText
-                tools:ignore="Autofill"
                 android:id="@+id/etDireccion"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:ems="10"
-                android:inputType="text"
                 android:hint="@string/direccionMinus"
+                android:inputType="text"
+                android:minHeight="48dp"
+                tools:ignore="Autofill"
                 tools:layout_editor_absoluteX="22dp"
-                tools:layout_editor_absoluteY="507dp"
-                android:minHeight="48dp"/>
+                tools:layout_editor_absoluteY="507dp" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -190,17 +192,17 @@
                 android:textStyle="bold" />
 
             <EditText
-                tools:ignore="Autofill"
                 android:id="@+id/etFechaNac"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:ems="10"
                 android:hint="@string/fechaNacMinus"
                 android:inputType="date"
+                android:minHeight="48dp"
+                tools:ignore="Autofill"
                 tools:layout_editor_absoluteX="47dp"
-                tools:layout_editor_absoluteY="557dp"
-                android:minHeight="48dp"/>
+                tools:layout_editor_absoluteY="557dp" />
 
             <Button
                 android:id="@+id/btnContinuar"

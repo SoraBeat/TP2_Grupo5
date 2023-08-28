@@ -79,49 +79,96 @@ public class AgregarContactos1 extends AppCompatActivity {
         String nombre = editTxtNombre.getText().toString().trim();
         String email = editTxtEmail.getText().toString().trim();
         String fechaNac = editTxtDate.getText().toString().trim();
-
+        String tel = editTextTel.getText().toString().trim();
         Matcher matcherApellido = formatoSoloLetras.matcher(apellido);
         Matcher matcherNombre = formatoSoloLetras.matcher(nombre);
 
         Matcher matcherFechaNac = fechaNacFormato.matcher(fechaNac);
-
+        String error = "";
+        Integer errores = 0;
         //Verifico que el apellido no contenga numeros
-        if(!nombre.isEmpty() && matcherNombre.matches())
-        {
-            //Verifico que el nombre no contenga numeros
-            if(!apellido.isEmpty() && matcherApellido.matches())
-            {
-                //Verifico que sea un mail valido
-                if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    if (!fechaNac.isEmpty() && matcherFechaNac.matches()) //Si la fecha no esta vacia y el formato es valido dd/MM/yyyy
-                    {
-                        Intent viewAgregarContactos2 = new Intent(this, AgregarContactos2.class);
-                        //Paso la información al 2do formulario
-                        viewAgregarContactos2.putExtra("nombre", editTxtNombre.getText().toString().trim());
-                        viewAgregarContactos2.putExtra("apellido", editTxtApellido.getText().toString().trim());
-                        viewAgregarContactos2.putExtra("tel", editTextTel.getText().toString().trim());
-                        viewAgregarContactos2.putExtra("email", editTxtEmail.getText().toString().trim());
-                        viewAgregarContactos2.putExtra("direccion", editTextDireccion.getText().toString().trim());
-                        viewAgregarContactos2.putExtra("fechaNac", editTxtDate.getText().toString().trim());
-                        viewAgregarContactos2.putExtra("spinnerTel", spinnerTel.getSelectedItem().toString());
-                        viewAgregarContactos2.putExtra("spinnerEmail", spinnerEmail.getSelectedItem().toString());
-
-                        startActivity(viewAgregarContactos2);
-                    } else {
-                        Toast.makeText(this, "La fecha de nacimiento no es valida", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(this, "Correo electrónico no válido", Toast.LENGTH_SHORT).show();
-                }
+        if(nombre.isEmpty() || !matcherNombre.matches()){
+            if(nombre.isEmpty()){
+                editTxtNombre.setError("Completar nombre");
+            } else {
+                editTxtNombre.setError("Nombre invalido");
             }
-            else
+            error += "El nombre no puede quedar vacio o contener números";
+            errores ++;
+        }
+        if(apellido.isEmpty() || !matcherApellido.matches()){
+            if(apellido.isEmpty()){
+                editTxtApellido.setError("Completar apellido");
+            } else {
+                editTxtApellido.setError("Apellido invalido");
+            }
+
+            if(errores == 1)
             {
-                Toast.makeText(this, "El apellido no puede quedar vacio o contener números", Toast.LENGTH_SHORT).show();
+                error = "Todos los campos deben estar completados correctamente.";
+            } else {
+                error += "El apellido no puede quedar vacio o contener números";
+                errores++;
             }
         }
-        else
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if(email.isEmpty()){
+                editTxtEmail.setError("Completar email");
+            } else {
+                editTxtEmail.setError("Email invalido");
+            }
+            if(errores == 1)
+            {
+                error = "Todos los campos deben estar completados correctamente.";
+            }
+            else{
+                error += "Correo electrónico no válido";
+                errores ++;
+            }
+        }
+        if (tel.isEmpty()) {
+                editTextTel.setError("Completar telefono");
+            if(errores == 1)
+            {
+                error = "Todos los campos deben estar completados correctamente.";
+            }
+            else{
+                error += "Completar campo telefono";
+                errores ++;
+            }
+        }
+        if (fechaNac.isEmpty() || !matcherFechaNac.matches()) { //Si la fecha no esta vacia y el formato es valido dd/MM/yyyy
+            if(fechaNac.isEmpty()){
+                editTxtDate.setError("Completar fecha de nacimiento");
+            } else {
+                editTxtApellido.setError("Fecha invalida");
+            }
+            if(errores == 1)
+            {
+                error = "Todos los campos deben estar completados correctamente.";
+            }
+            else{
+                error += "La fecha de nacimiento no es valida";
+                errores ++;
+            }
+        }
+        if (errores==0)
         {
-            Toast.makeText(this, "El nombre no puede quedar vacio o contener números", Toast.LENGTH_SHORT).show();
+            Intent viewAgregarContactos2 = new Intent(this, AgregarContactos2.class);
+            //Paso la información al 2do formulario
+            viewAgregarContactos2.putExtra("nombre", editTxtNombre.getText().toString().trim());
+            viewAgregarContactos2.putExtra("apellido", editTxtApellido.getText().toString().trim());
+            viewAgregarContactos2.putExtra("tel", editTextTel.getText().toString().trim());
+            viewAgregarContactos2.putExtra("email", editTxtEmail.getText().toString().trim());
+            viewAgregarContactos2.putExtra("direccion", editTextDireccion.getText().toString().trim());
+            viewAgregarContactos2.putExtra("fechaNac", editTxtDate.getText().toString().trim());
+            viewAgregarContactos2.putExtra("spinnerTel", spinnerTel.getSelectedItem().toString());
+            viewAgregarContactos2.putExtra("spinnerEmail", spinnerEmail.getSelectedItem().toString());
+
+            startActivity(viewAgregarContactos2);
+        }
+        else{
+            Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
         }
     }
 }
