@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import com.example.tp2_grupo5.MostrarDatos;
 
 import kotlin.jvm.internal.markers.KMutableMap;
 
@@ -61,7 +62,21 @@ public class ListarContactos extends AppCompatActivity {
             boton.setBackgroundColor(getResources().getColor(R.color.transparent));
             boton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    Intent viewMostrarDatos= new Intent(v.getContext(), MostrarDatos.class);
+                    //Paso la información al 2do formulario
+                    viewMostrarDatos.putExtra("nombre", jsonPersona.get("Nombre").toString());
+                    viewMostrarDatos.putExtra("apellido", jsonPersona.get("Apellido").toString());
+                    viewMostrarDatos.putExtra("tel", jsonPersona.get("Telefono").toString());
+                    viewMostrarDatos.putExtra("email", jsonPersona.get("Email").toString());
+                    viewMostrarDatos.putExtra("direccion", jsonPersona.get("Direccion").toString());
+                    viewMostrarDatos.putExtra("fechaNac", jsonPersona.get("Date").toString());
+                    viewMostrarDatos.putExtra("spinnerTel", jsonPersona.get("SpinnerTelefono").toString());
+                    viewMostrarDatos.putExtra("spinnerEmail", jsonPersona.get("SpinnerEmail").toString());
+                    viewMostrarDatos.putExtra("radeoGroup", jsonPersona.get("radeoGroup").toString());
+                    viewMostrarDatos.putExtra("Intereses", jsonPersona.get("Intereses").toString());
+                    viewMostrarDatos.putExtra("Informacion", jsonPersona.get("Informacion").toString());
 
+                    startActivity(viewMostrarDatos);
                 }
             });
             listaPersonas.addView(boton);

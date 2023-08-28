@@ -151,7 +151,7 @@
                     android:minHeight="48dp"/>
 
                 <Spinner
-                    android:id="@+id/spinnerEmail"
+                    android:id="@+id/SpinnerEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

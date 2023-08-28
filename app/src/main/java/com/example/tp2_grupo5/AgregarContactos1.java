@@ -3,11 +3,8 @@ package com.example.tp2_grupo5;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +14,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,7 +42,7 @@ public class AgregarContactos1 extends AppCompatActivity {
         editTextTel = (EditText)findViewById(R.id.etTelefono);
         editTextDireccion = (EditText)findViewById(R.id.etDireccion);
         spinnerTel = (Spinner)findViewById(R.id.spinnerTelefono);
-        spinnerEmail = (Spinner)findViewById(R.id.spinnerEmail);
+        spinnerEmail = (Spinner)findViewById(R.id.SpinnerEmail);
 
         //Opciones del Spinner
         String[] opciones = {"Casa", "Trabajo", "Móvil"};
